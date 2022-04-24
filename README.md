@@ -7,7 +7,7 @@ PASSO 1 -> Execute o servidor
 PASSE 2 -> Será aberto a tela do servidor, nessa tela você pode fechar o servidor ou Deixa-lo rodando em segundo plano
 
 # PASSO CLIENTE 
-PASSO 1 -> Após realizar a execução do servidor será necessário configurar o arquivo "config.ini" que se encontra dentro da pasta do projeto CLIENTE.
+PASSO 1 -> Após realizar a execução do servidor será necessário configurar o arquivo "config.ini" que se encontra dentro da pasta do projeto CLIENTE.\n
 PASSO 2 -> No arquivo "config.ini" você precisa alterar o host -> localhost caso o servidor esteja rodando localmente ou colocar o ip caso esteja rodando em outra maquina.
 PASSO 3 -> No arquivo "config.ini" você precisa alterar Em arquivotxt= -> coloque o local que se encontra o arquivo que deseja carregar a conversa, o arquivo se encontra na pasta do servidor, esse arquivo é o arquivo que são salvos os mensagens enviadas. 
 PASSO 4 -> Salve as alterações
