@@ -39,7 +39,7 @@ PASSO 5 -> Faça login
 
 ## Quando a tela do chat for aberta será carregado todos os usuários que se inscreveram na aplicação
 
-## Quando o usuário selecionar outro usuário será carregado a conversa que tiveram, caso não tenha conversa será aberto uma.
+## Quando o usuário selecionar outro usuário será carregado a conversa que tiveram, caso não tenha, a conversa será aberto uma.
 
 
 
