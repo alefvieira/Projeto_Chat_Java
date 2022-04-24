@@ -7,7 +7,10 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 
 
 public final class Mensagem {
@@ -32,16 +35,24 @@ public final class Mensagem {
             public void run(){
                 String message;
                 try {
+                    
                     InputStreamReader irs = new InputStreamReader(s.getInputStream());
+                    
                     BufferedReader br = new BufferedReader(irs);
                     
                     
-                    while((message = br.readLine()) != null){
-                        System.out.println(message);
+                    while((message = br.readLine() ) != null){
+                        
+                        
+
                         enviarMensagem(message);
                         
+
+//                        escritaArquivo(separatedStrings[0], message);
+
 //                        vai escrever no arquivo
                         escritaArquivo(message);
+
                     }
 
                 } catch (Exception e) {
@@ -53,24 +64,47 @@ public final class Mensagem {
          
     }
     public void  enviarMensagem(String message){
+            String[] t;
+            
+            t = message.split("@@@@ADMIN@");
+//            System.out.println(t[0]+ t[1]+ t[2]);
+            
             for(int a = 0; a < this.clientes.size(); a++){
 
-
-                this.clientes.get(a).println(message);
-                this.clientes.get(a).flush();
-
+                for(int i = 0 ;i < t.length; i++){
+                    if(t.length-1 == i ){
+                        this.clientes.get(a).flush();
+                    }else{
+                        this.clientes.get(a).println(t[i]);
+                        
+                    }
+                    
+                }
             }
-        
+ 
     }
     
     public void escritaArquivo(String texto){    
         //GRAVAR ARQUIVO
         try {
-            FileWriter arq = new FileWriter("conversaChat.txt",true);
-            PrintWriter gravarArq = new PrintWriter(arq);
-            //gravarArq.println(Texto);
-            gravarArq.println(texto);
-            gravarArq.close();
+            String[] t = texto.split("@@@@ADMIN@");
+            String t2 = "";
+            for(int i = 0; i < t.length ; i++){
+                
+                if(t.length-1 == i ){
+                    FileWriter arq = new FileWriter(t[i]+".txt",true);
+                    PrintWriter gravarArq = new PrintWriter(arq);
+
+                    gravarArq.println();
+                    gravarArq.println(t2);
+                    gravarArq.close();
+                }else{
+                    t2 += t[i]+"\n  "; 
+                
+                }
+            }
+            
+            
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
