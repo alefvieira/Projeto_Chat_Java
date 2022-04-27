@@ -261,12 +261,10 @@ public class Chat extends javax.swing.JFrame {
         try{
 
                 this.ps = new PrintStream(this.s.getOutputStream());
-            
-                mensagem = "  "+timeStamp+" -- "+ this.nome + "\n   "+ msgEnviar.getText();
+                
+                mensagem = timeStamp+" -- "+ this.nome + ": @@@@ADMIN@"+ msgEnviar.getText()+"@@@@ADMIN@conversaChat";
 
-                this.ps.println();
-                this.ps.flush();            
-
+          
                 this.ps.println(mensagem);
                 this.ps.flush();            
 

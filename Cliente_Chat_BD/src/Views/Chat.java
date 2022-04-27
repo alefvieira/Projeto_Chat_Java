@@ -150,11 +150,11 @@ public class Chat extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         mensagemRecebida = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        msgEnviar = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         contatos = new javax.swing.JTable();
         conversando = new javax.swing.JLabel();
+        msgEnviar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,19 +171,8 @@ public class Chat extends javax.swing.JFrame {
             }
         });
 
-        msgEnviar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        msgEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                msgEnviarActionPerformed(evt);
-            }
-        });
-        msgEnviar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                msgEnviarKeyPressed(evt);
-            }
-        });
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Conversas"));
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
         contatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,57 +205,58 @@ public class Chat extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(contatos);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel2.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         conversando.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+
+        msgEnviar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        msgEnviar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                msgEnviarKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                        .addComponent(msgEnviar))
-                    .addComponent(conversando, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(19, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(msgEnviar)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
+                            .addComponent(conversando, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(conversando, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(msgEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(msgEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(654, 500));
+        setSize(new java.awt.Dimension(654, 552));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -278,22 +268,6 @@ public class Chat extends javax.swing.JFrame {
             
         }    
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void msgEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_msgEnviarKeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String verif = verif_CampoLimpo();
-            //aqui vai o q voce deseja fazer quando o usuario clicar enter naquele jtextfield
-            if(verif.equals("false")){
-                enviarMensagem() ;
-               
-            }
-        }
-    }//GEN-LAST:event_msgEnviarKeyPressed
-
-    private void msgEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msgEnviarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_msgEnviarActionPerformed
 
     private void contatosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contatosKeyPressed
         // TODO add your handling code here:
@@ -317,6 +291,17 @@ public class Chat extends javax.swing.JFrame {
         setConversa();
         
     }//GEN-LAST:event_contatosMouseClicked
+
+    private void msgEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_msgEnviarKeyPressed
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            String verif = verif_CampoLimpo();
+            //aqui vai o q voce deseja fazer quando o usuario clicar enter naquele jtextfield
+            if(verif.equals("false")){
+                enviarMensagem() ;
+               
+            }
+        }
+    }//GEN-LAST:event_msgEnviarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -365,13 +350,13 @@ public class Chat extends javax.swing.JFrame {
                     ConversaP = this.nome;
                 }
                 
-                mensagem = "  "+timeStamp+" -- "+ this.nome + "@@@@ADMIN@ "+ msgEnviar.getText()+"@@@@ADMIN@"+ConversaP;
+                mensagem = timeStamp+" -- "+ this.nome + ": @@@@ADMIN@"+ msgEnviar.getText()+"@@@@ADMIN@"+ConversaP;
                 
                 
 //                JOptionPane.showMessageDialog(null, msg_conttConversa[0]);
 //                essa parte serve para pular uma linha
-                this.ps.println();
-                this.ps.flush();            
+//                this.ps.println();;
+//                this.ps.flush();            
 
                 this.ps.println(mensagem);
                 this.ps.flush();            

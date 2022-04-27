@@ -43,12 +43,7 @@ public final class Mensagem {
                     
                     while((message = br.readLine() ) != null){
                         
-                        
-
                         enviarMensagem(message);
-                        
-
-//                        escritaArquivo(separatedStrings[0], message);
 
 //                        vai escrever no arquivo
                         escritaArquivo(message);
@@ -67,43 +62,29 @@ public final class Mensagem {
             String[] t;
             
             t = message.split("@@@@ADMIN@");
-//            System.out.println(t[0]+ t[1]+ t[2]);
+
+            
             
             for(int a = 0; a < this.clientes.size(); a++){
-
-                for(int i = 0 ;i < t.length; i++){
-                    if(t.length-1 == i ){
-                        this.clientes.get(a).flush();
-                    }else{
-                        this.clientes.get(a).println(t[i]);
-                        
-                    }
-                    
-                }
+                 
+                this.clientes.get(a).println("\n  "+t[0]+"\n   "+t[1]);
+                this.clientes.get(a).flush();              
+                System.out.println("\n  "+t[0]+"\n  "+t[1]+ t[2]);
             }
- 
+
     }
     
     public void escritaArquivo(String texto){    
         //GRAVAR ARQUIVO
         try {
             String[] t = texto.split("@@@@ADMIN@");
-            String t2 = "";
-            for(int i = 0; i < t.length ; i++){
-                
-                if(t.length-1 == i ){
-                    FileWriter arq = new FileWriter(t[i]+".txt",true);
+            System.out.println(Arrays.toString(t));
+
+                    FileWriter arq = new FileWriter(t[2]+".txt",true);
                     PrintWriter gravarArq = new PrintWriter(arq);
 
-                    gravarArq.println();
-                    gravarArq.println(t2);
-                    gravarArq.close();
-                }else{
-                    t2 += t[i]+"\n  "; 
-                
-                }
-            }
-            
+                    gravarArq.println("\n  "+t[0]+"\n   "+t[1]);
+                    gravarArq.close();            
             
 
         } catch (IOException e) {
